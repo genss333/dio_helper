@@ -1,7 +1,7 @@
 # Dio Helper 
 
 ## Example
-
+```dart
 class WeatherApi {
   Dio dioApi() {
     //get base url from env
