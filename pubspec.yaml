@@ -1,6 +1,6 @@
 name: dio_helper
 description: "A package for implement dio custom for my organization"
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/genss333/dio_helper.git
 
 environment:
