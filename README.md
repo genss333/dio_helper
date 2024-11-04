@@ -1,5 +1,8 @@
 # Dio Helper 
 
+## Dio Documentation
+- ref: https://pub.dev/packages/dio
+
 ## Example
 ```dart
 class WeatherApi {
@@ -35,5 +38,3 @@ class WeatherService extends GetxService {
   //create any tour services
 }
 
-## Dio Documentation
-- ref: https://pub.dev/packages/dio
