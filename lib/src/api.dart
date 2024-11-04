@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
-import 'package:dio_helper/src/pretty_print_json.dart';
 import 'package:flutter/foundation.dart';
 
+import 'pretty_print_json.dart';
 import 'status_code.dart';
 
 class Api {
