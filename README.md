@@ -1,39 +1,39 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Dio Helper 
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+## Example
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+class WeatherApi {
+  Dio dioApi() {
+    //get base url from env
+    String baseUrl = 'https://api.openweathermap.org';
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+    //Set up the api
+    Api api = Api(
+      baseUrl: baseUrl,
+      accessToken: '',
+      refreshToken: '',
+      onTokenRefreshed: (newToken) {
+        debugPrint('New token: $newToken');
+      },
+      serverCertificate: '',
+      connectTimeout: 180,
+      receiveTimeout: 180,
+      header: {},
+    );
 
-## Features
+    api.onInit();
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+    return api.dio;
+  }
+}
 
-## Getting started
+class WeatherService extends GetxService {
+  final WeatherApi api;
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+  WeatherService({required this.api});
 
-## Usage
+  //create any tour services
+}
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
-```
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+## Dio Documentation
+- ref: https://pub.dev/packages/dio
