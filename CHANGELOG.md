@@ -4,3 +4,6 @@
 
 ## 1.0.0
 - publissh to pub.dev
+
+## 1.0.2
+- Refactor README.md
