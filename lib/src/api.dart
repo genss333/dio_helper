@@ -14,6 +14,9 @@ class Api {
   String serverCertificate;
   List<String> ignorePaths = [];
   Function(String newToken) onTokenRefreshed;
+  Map<String, dynamic>? header;
+  int? connectTimeout;
+  int? receiveTimeout;
 
   Api({
     required this.baseUrl,
@@ -22,15 +25,18 @@ class Api {
     this.serverCertificate = '',
     this.ignorePaths = const [],
     required this.onTokenRefreshed,
+    this.connectTimeout,
+    this.receiveTimeout,
+    this.header,
   });
 
   Dio dio = Dio();
 
   void onInit() {
     dio.options.baseUrl = baseUrl;
-    dio.options.connectTimeout = const Duration(seconds: 90);
-    dio.options.receiveTimeout = const Duration(seconds: 90);
-    dio.options.headers['Content-Type'] = 'application/json';
+    dio.options.connectTimeout = Duration(seconds: connectTimeout ?? 90);
+    dio.options.receiveTimeout = Duration(seconds: receiveTimeout ?? 90);
+    dio.options.headers = header;
 
     dio.interceptors.add(
       CustomInterceptor(
@@ -79,7 +85,7 @@ class CustomInterceptor extends Interceptor {
           return serverCertificate == cert.pem;
         };
     };
-    
+
     PrettyPrint.print(options.headers);
   }
 
